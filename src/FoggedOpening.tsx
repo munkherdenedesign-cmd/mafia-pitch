@@ -32,8 +32,9 @@ export default function FoggedOpening(){
   const wipe=(e:PointerEvent)=>{const p=pos(e);if(down){const dx=p.x-lastX,dy=p.y-lastY,dist=Math.hypot(dx,dy),n=Math.max(1,Math.ceil(dist/Math.max(8,radius/3)));for(let i=1;i<=n;i++)strokes.push({x:lastX+dx*i/n,y:lastY+dy*i/n,r:radius,t:performance.now()});}lastX=p.x;lastY=p.y};
   const onDown=(e:PointerEvent)=>{down=true;el.setPointerCapture(e.pointerId);const p=pos(e);lastX=p.x;lastY=p.y;strokes.push({...p,r:radius,t:performance.now()})};
   const onUp=()=>{down=false};
-  const wheel=(e:WheelEvent)=>{if(e.ctrlKey)return; /* native scrolling advances directly into the pitch */};
-  const key=(e:KeyboardEvent)=>{if(e.key==='[')radius=Math.max(14,radius-8);if(e.key===']')radius=Math.min(180,radius+8)};
+  let transitioned=false;
+  const wheel=(e:WheelEvent)=>{if(e.ctrlKey||e.deltaY<=0||transitioned)return;transitioned=true;e.preventDefault();document.getElementById('p01')?.scrollIntoView({behavior:'smooth',block:'start'});};
+  const key=(e:KeyboardEvent)=>{if((e.key==='ArrowDown'||e.key==='PageDown'||e.key===' ')&&!transitioned&&window.scrollY<80){transitioned=true;document.getElementById('p01')?.scrollIntoView({behavior:'smooth'});}if(e.key==='[')radius=Math.max(14,radius-8);if(e.key===']')radius=Math.min(180,radius+8)};
   resize();const observer=new ResizeObserver(resize);observer.observe(el);raf=requestAnimationFrame(paint);
   el.addEventListener('pointerdown',onDown);el.addEventListener('pointermove',wipe);el.addEventListener('pointerup',onUp);el.addEventListener('pointercancel',onUp);el.addEventListener('wheel',wheel,{passive:false});window.addEventListener('keydown',key);
 
