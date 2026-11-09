@@ -1,4 +1,5 @@
 import React,{useEffect,useRef} from 'react';
+import studioImage from '../studio-empty.jpg';
 
 /** Fogged-glass opening, adapted for this Vite site from the supplied interaction reference. */
 export default function FoggedOpening(){
@@ -8,7 +9,7 @@ export default function FoggedOpening(){
   const ctx=el.getContext('2d');if(!ctx)return;
   const img=new Image();img.crossOrigin='anonymous';
   img.onerror=()=>{img.onerror=null;img.src='https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1800&q=85'};
-  img.src='/images/studio-empty.jpg';
+  img.src=studioImage;
   let w=0,h=0,dpr=1,raf=0,down=false,radius=65,lastX=0,lastY=0;
   const strokes:{x:number;y:number;r:number;t:number}[]=[];
   const drops=Array.from({length:75},()=>({x:Math.random(),y:Math.random(),r:1+Math.random()*3,v:0.00003+Math.random()*0.00015}));
