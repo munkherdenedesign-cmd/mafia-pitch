@@ -7,6 +7,7 @@ export default function FoggedOpening(){
   const el=canvas.current;if(!el)return;
   const ctx=el.getContext('2d');if(!ctx)return;
   const img=new Image();img.crossOrigin='anonymous';
+  img.onerror=()=>{img.onerror=null;img.src='https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1800&q=85'};
   img.src='/images/studio-empty.jpg';
   let w=0,h=0,dpr=1,raf=0,down=false,radius=65,lastX=0,lastY=0;
   const strokes:{x:number;y:number;r:number;t:number}[]=[];
