@@ -41,3 +41,13 @@ footer.spf .spf-bar{max-width:none;}
 .pitch-accent{color:#1638d9}
 @media(max-width:700px){.pitch-page{min-height:560px;padding:24px}.pitch-body{padding:32px 0;gap:20px}.pitch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pitch-box{padding:16px;min-height:95px;font-size:17px}.pitch-flow{flex-direction:column}.pitch-arrow{transform:rotate(90deg);align-self:center}.pitch-placeholder{min-height:150px}.pitch-wide{min-height:210px}.pitch-page h1{font-size:clamp(55px,14vw,90px)}.pitch-page h2{font-size:clamp(32px,8vw,50px)}}
 @media(max-width:390px){.pitch-grid{grid-template-columns:1fr}}
+
+
+/* Keep the original interactive shader visible behind selected pitch screens. */
+.section-wrap:has(.shader-layer) .pitch-page{background:transparent;color:#fff}
+.section-wrap:has(.shader-layer) .pitch-meta{color:#dce4ff}
+.section-wrap:has(.shader-layer) .pitch-page h1,.section-wrap:has(.shader-layer) .pitch-page h2{color:#fff}
+.section-wrap:has(.shader-layer) .pitch-small{color:#dce4ff}
+.section-wrap:has(.shader-layer) .pitch-accent{color:#b7d2ff}
+.section-wrap:has(.shader-layer) .pitch-box{color:#172338}
+.section-wrap:has(.shader-layer) .pitch-placeholder{color:#536071}
