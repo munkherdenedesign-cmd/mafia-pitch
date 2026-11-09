@@ -4,3 +4,40 @@
 /* The signature footer owns its layout; override the original generic footer styling. */
 footer.spf{max-width:none;margin:0;padding:0;display:flex;justify-content:initial;font-size:initial;font-weight:initial;letter-spacing:normal;}
 footer.spf .spf-bar{max-width:none;}
+
+
+/* Mongolian visual pitch */
+.pitch-page{min-height:620px;padding:clamp(30px,5vw,70px);background:#fff;color:#172338;display:flex;flex-direction:column}
+.pitch-meta{display:flex;justify-content:space-between;gap:12px;color:#718096;font-size:11px;font-weight:800;letter-spacing:1.3px}
+.pitch-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px;padding:35px 0}
+.pitch-page h1{font-size:clamp(64px,12vw,145px);line-height:.9;color:inherit;letter-spacing:-.08em}
+.pitch-page h2{font-size:clamp(34px,5.5vw,70px);line-height:1.05;max-width:980px;letter-spacing:-.055em}
+.pitch-page p{margin:0;max-width:800px;font-size:clamp(16px,2vw,22px)}
+.pitch-page .pitch-lead{font-size:clamp(21px,3vw,34px);font-weight:650;line-height:1.35}
+.pitch-kicker{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:800}
+.pitch-blue{background:#1638d9;color:white}
+.pitch-blue .pitch-meta{color:#dce4ff}
+.pitch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;width:100%}
+.pitch-box{background:#f0f3fa;border-radius:16px;padding:25px;display:flex;flex-direction:column;gap:10px;justify-content:center;min-height:105px;font-size:21px;color:#172338}
+.pitch-box strong{font-size:clamp(17px,2.2vw,25px);line-height:1.2}
+.pitch-box small{font-size:14px;color:#536071}
+.pitch-box em{font-size:clamp(45px,6vw,75px);font-weight:800;font-style:normal;color:#1638d9}
+.pitch-flow{display:flex;align-items:stretch;gap:12px}
+.pitch-flow .pitch-box{flex:1}
+.pitch-arrow{align-self:center;font-size:30px;color:#1638d9;font-weight:800}
+.pitch-placeholder{min-height:190px;border:2px dashed #b9c6dc;background:#f0f3fa;color:#66748c;border-radius:18px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;font-size:45px;text-align:center;padding:24px}
+.pitch-placeholder small{font-size:14px;max-width:300px}
+.pitch-wide{min-height:270px}
+.pitch-tags{display:flex;gap:10px;flex-wrap:wrap}
+.pitch-tags span{background:#eaf0ff;color:#1638d9;border-radius:99px;padding:10px 15px;font-size:13px;font-weight:700}
+.pitch-steps{display:flex;flex-direction:column;gap:7px;max-width:680px}
+.pitch-steps div:nth-child(odd){background:#edf2ff;color:#1638d9;border-radius:12px;padding:16px 20px;font-size:clamp(17px,2vw,23px);font-weight:750}
+.pitch-steps div:nth-child(even){padding-left:18px;color:#628df2;font-size:25px;line-height:1}
+.pitch-blue .pitch-steps div:nth-child(odd){background:#ffffff;color:#1638d9}
+.pitch-blue .pitch-steps div:nth-child(even){color:#fff}
+.pitch-small{font-size:14px!important;color:#657185}
+.pitch-centerbox{background:#1638d9;color:white;border-radius:16px;padding:28px;text-align:center;font-weight:800;font-size:24px}
+.pitch-down{text-align:center;color:#1638d9;font-size:32px}
+.pitch-accent{color:#1638d9}
+@media(max-width:700px){.pitch-page{min-height:560px;padding:24px}.pitch-body{padding:32px 0;gap:20px}.pitch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pitch-box{padding:16px;min-height:95px;font-size:17px}.pitch-flow{flex-direction:column}.pitch-arrow{transform:rotate(90deg);align-self:center}.pitch-placeholder{min-height:150px}.pitch-wide{min-height:210px}.pitch-page h1{font-size:clamp(55px,14vw,90px)}.pitch-page h2{font-size:clamp(32px,8vw,50px)}}
+@media(max-width:390px){.pitch-grid{grid-template-columns:1fr}}
