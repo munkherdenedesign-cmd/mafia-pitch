@@ -1,14 +1,13 @@
-import React,{useEffect,useRef,useState} from 'react';
+import React,{useEffect,useRef} from 'react';
 
 /** Fogged-glass opening, adapted for this Vite site from the supplied interaction reference. */
 export default function FoggedOpening(){
  const canvas=useRef<HTMLCanvasElement>(null);
- const [ready,setReady]=useState(false);
  useEffect(()=>{
   const el=canvas.current;if(!el)return;
   const ctx=el.getContext('2d');if(!ctx)return;
   const img=new Image();img.crossOrigin='anonymous';
-  img.src='https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1800&q=85';
+  img.src='/images/studio-empty.jpg';
   let w=0,h=0,dpr=1,raf=0,down=false,radius=65,lastX=0,lastY=0;
   const strokes:{x:number;y:number;r:number;t:number}[]=[];
   const drops=Array.from({length:75},()=>({x:Math.random(),y:Math.random(),r:1+Math.random()*3,v:0.00003+Math.random()*0.00015}));
@@ -33,17 +32,15 @@ export default function FoggedOpening(){
   const wipe=(e:PointerEvent)=>{const p=pos(e);if(down){const dx=p.x-lastX,dy=p.y-lastY,dist=Math.hypot(dx,dy),n=Math.max(1,Math.ceil(dist/Math.max(8,radius/3)));for(let i=1;i<=n;i++)strokes.push({x:lastX+dx*i/n,y:lastY+dy*i/n,r:radius,t:performance.now()});}lastX=p.x;lastY=p.y};
   const onDown=(e:PointerEvent)=>{down=true;el.setPointerCapture(e.pointerId);const p=pos(e);lastX=p.x;lastY=p.y;strokes.push({...p,r:radius,t:performance.now()})};
   const onUp=()=>{down=false};
-  const wheel=(e:WheelEvent)=>{if(e.ctrlKey)return;e.preventDefault();radius=Math.max(14,Math.min(180,radius-e.deltaY*.12))};
+  const wheel=(e:WheelEvent)=>{if(e.ctrlKey)return; /* native scrolling advances directly into the pitch */};
   const key=(e:KeyboardEvent)=>{if(e.key==='[')radius=Math.max(14,radius-8);if(e.key===']')radius=Math.min(180,radius+8)};
   resize();const observer=new ResizeObserver(resize);observer.observe(el);raf=requestAnimationFrame(paint);
   el.addEventListener('pointerdown',onDown);el.addEventListener('pointermove',wipe);el.addEventListener('pointerup',onUp);el.addEventListener('pointercancel',onUp);el.addEventListener('wheel',wheel,{passive:false});window.addEventListener('keydown',key);
-  img.onload=()=>setReady(true);
+
   return()=>{cancelAnimationFrame(raf);observer.disconnect();el.removeEventListener('pointerdown',onDown);el.removeEventListener('pointermove',wipe);el.removeEventListener('pointerup',onUp);el.removeEventListener('pointercancel',onUp);el.removeEventListener('wheel',wheel);window.removeEventListener('keydown',key)};
  },[]);
  return <section className="fog-opening" id="top" aria-label="Interactive fogged glass opening">
   <canvas ref={canvas} className="fog-canvas" aria-label="Drag to wipe fog from the glass"/>
-  <div className="fog-topline"><span>PROJECT: MAFIA</span><span>INTERACTIVE INTRO</span></div>
-  <div className="fog-center"><span className="fog-eyebrow">ТА ЮУ ХАРЖ БАЙНА ВЭ?</span><h1>MAFIA</h1><p>Шилэн дээр чирж, цаана нь юу байгааг хараарай.</p></div>
-  <div className="fog-bottom"><span>Чирж арилгах · Scroll: арчих хэмжээ</span><a href="#p01">ТӨСӨЛ ҮЗЭХ ↓</a></div>
+
  </section>;
 }
