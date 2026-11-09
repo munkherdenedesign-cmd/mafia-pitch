@@ -6,7 +6,7 @@
 // <div className="relative"><ShaderBackground className="absolute inset-0" />…
 
 
-import { useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 
 const VERT = `attribute vec2 a_position;
 void main() {
