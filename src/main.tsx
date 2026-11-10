@@ -43,14 +43,14 @@ function App(){
   if(btn){setFeature(btn.dataset.feature||'Нэг ширээ')}
  };
  return <div className="presentation-shell" onClick={handleClick}>
-  <nav className="deck-nav"><a className="brand" href="#p01">MAFIA<span>✳</span></a><div className="links"><a href="#p02">Санаа</a><a href="#p10">Дугаарууд</a><a href="#p09">Оролцогчид</a><a href="#p17">Хамтрах</a></div><a className="nav-cta" href="https://www.youtube.com/channel/UCROpmu3bahe8JtvZkUKtLPg" target="_blank" rel="noopener noreferrer">REFERENCES ↗</a></nav>
+  <nav className="deck-nav"><a className="brand" href="#p01">MAFIA<span>✳</span></a><div className="links"><a href="#p02">Санаа</a><a href="#p10">Дугаарууд</a><a href="#p09">Оролцогчид</a><a href="#p11">Модератор</a></div><a className="nav-cta" href="https://www.youtube.com/channel/UCROpmu3bahe8JtvZkUKtLPg" target="_blank" rel="noopener noreferrer">REFERENCES ↗</a></nav>
   <div className="deck-stage" onTouchStart={e=>{touchX.current=e.touches[0]?.clientX??null}} onTouchEnd={e=>{if(touchX.current===null)return;const dx=e.changedTouches[0].clientX-touchX.current;touchX.current=null;if(Math.abs(dx)>65)go(slide+(dx<0?1:-1))}}>
    {slide===0?<div className="deck-opening"><FoggedOpening/><button className="deck-enter" onClick={()=>go(1)}>Танилцуулгыг эхлүүлэх <span aria-hidden="true">→</span></button></div>:
    <main className="deck-main">
     <div key={slide} className={'section-wrap deck-slide '+(slide===1?'first':'')}>
-     {([1,11,13].includes(slide))&&<div className="shader-layer"><ShaderBackground className="shader-canvas"/></div>}
+     {([1,12,14].includes(slide))&&<div className="shader-layer"><ShaderBackground className="shader-canvas"/></div>}
      <div className="section-content" dangerouslySetInnerHTML={{__html:sections[slide-1]}}/>
-     {slide===11&&<div className="deck-feature-panel" aria-live="polite">{featureDetails[feature]}</div>}
+     {slide===12&&<div className="deck-feature-panel" aria-live="polite">{featureDetails[feature]}</div>}
     </div>
    </main>}
   </div>
