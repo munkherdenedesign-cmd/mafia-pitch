@@ -109,3 +109,10 @@ footer.spf .spf-bar{max-width:none;}
 .pitch-photo-empty-inner strong{font-size:clamp(17px,2vw,23px);letter-spacing:-.03em}
 .pitch-photo-empty-inner small{font-size:13px;color:#68758a}
 .pitch-photo-empty figcaption{background:linear-gradient(transparent,#26354a);color:white}
+
+/* Production camera references: four separate, non-overlapping cards. */
+.pitch-camera-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start;width:100%}
+.pitch-camera-grid .pitch-photo{display:flex;flex-direction:column;min-width:0;min-height:0;aspect-ratio:auto;overflow:hidden;border-radius:16px;background:#f1f4fa}
+.pitch-camera-grid .pitch-photo img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;flex:none}
+.pitch-camera-grid .pitch-photo figcaption{position:static;display:block;padding:13px 16px;background:#edf1f8;color:#172338;font-size:13px;font-weight:700;line-height:1.4}
+@media(max-width:650px){.pitch-camera-grid{grid-template-columns:1fr;gap:16px}}
