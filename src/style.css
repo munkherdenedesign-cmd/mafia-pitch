@@ -224,3 +224,9 @@ html,body,#root{width:100%;height:100%;margin:0;overflow:hidden}
 .moderator-role>span,.moderator-role>small{font-size:12px;opacity:.65;letter-spacing:.06em}
 .moderator-role>strong{font-size:clamp(17px,2vw,25px);font-weight:600;border-bottom:1px solid rgba(125,125,125,.25);padding-bottom:12px}
 @media(max-width:700px){.moderator-layout{grid-template-columns:1fr;gap:18px}.moderator-name{font-size:44px}.moderator-role{gap:8px;padding:18px}.moderator-role>strong{font-size:16px;padding-bottom:7px}}
+
+/* Participant outreach strategy */
+.outreach-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:clamp(18px,3vh,38px) 0}
+.outreach-grid>div{padding:clamp(16px,2vw,28px);border:1px solid rgba(140,155,190,.3);border-radius:14px;background:rgba(110,135,190,.1);display:flex;flex-direction:column;gap:14px;min-width:0}
+.outreach-grid span{font-size:11px;letter-spacing:.08em;opacity:.75}.outreach-grid strong{font-size:clamp(18px,2vw,27px);line-height:1.15}.outreach-grid p{font-size:clamp(12px,1.15vw,15px);line-height:1.5;margin:0;opacity:.82}
+@media(max-width:900px){.outreach-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.outreach-grid{gap:8px}.outreach-grid>div{padding:12px;gap:8px}.outreach-grid strong{font-size:17px}.outreach-grid p{font-size:12px}}
