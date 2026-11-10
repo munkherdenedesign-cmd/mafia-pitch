@@ -198,3 +198,21 @@ html,body,#root{width:100%;height:100%;margin:0;overflow:hidden}
 .deck-slide:has(.deck-feature-panel) .section-content{flex:1;min-height:0}
 .deck-slide .deck-feature-panel{position:static;flex:0 0 auto;max-width:none;margin:0 clamp(24px,4vw,68px) 14px;padding:11px 16px;box-shadow:none}
 @media(max-width:700px){.deck-slide .deck-feature-panel{margin:0 18px 12px}}
+
+/* Content deliverables and release plan: compact slide-native diagrams. */
+.deliverable-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,24px);width:100%;max-width:1150px}
+.deliverable-card{display:flex;flex-direction:column;justify-content:center;gap:8px;min-height:clamp(165px,28vh,265px);padding:clamp(20px,3vw,36px);border-radius:18px;background:#f0f3fa;color:#172338}
+.deliverable-long{background:#1638d9;color:#fff}
+.deliverable-card>span{font-size:11px;font-weight:850;letter-spacing:.17em;opacity:.75}
+.deliverable-card>strong{font-family:'Space Grotesk',sans-serif;font-size:clamp(60px,8vw,115px);line-height:.9;letter-spacing:-.09em}
+.deliverable-card h3{font-size:clamp(22px,2.5vw,34px);letter-spacing:-.05em}
+.deliverable-card p{font-size:clamp(13px,1.2vw,17px)!important;opacity:.85}
+.platform-strip{display:flex;flex-wrap:wrap;gap:9px}
+.platform-strip span{border:1px solid #cdd7ea;background:#f3f6fb;border-radius:99px;padding:10px 15px;color:#1638d9;font-size:clamp(11px,1vw,14px);font-weight:800}
+.release-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.5vw,20px);width:100%}
+.release-grid>div{display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-height:clamp(155px,26vh,240px);padding:clamp(18px,2.4vw,30px);background:#f0f3fa;border-radius:18px}
+.release-grid>div:nth-child(2){background:#1638d9;color:#fff}
+.release-grid small{font-size:11px;font-weight:800;letter-spacing:.12em;opacity:.7}
+.release-grid strong{font-size:clamp(23px,2.7vw,38px);letter-spacing:-.05em;line-height:1.1}
+.release-grid span{font-size:clamp(12px,1.2vw,16px);opacity:.75}
+@media(max-width:700px){.deliverable-grid{gap:10px}.deliverable-card{min-height:145px;padding:15px}.deliverable-card>strong{font-size:60px}.deliverable-card h3{font-size:20px}.platform-strip span{padding:7px 10px}.release-grid{grid-template-columns:1fr;gap:8px}.release-grid>div{min-height:0;gap:7px;padding:14px}.release-grid strong{font-size:21px}}
