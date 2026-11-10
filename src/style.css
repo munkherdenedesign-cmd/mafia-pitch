@@ -102,3 +102,10 @@ footer.spf .spf-bar{max-width:none;}
 .edition-games strong{font-size:clamp(17px,2vw,24px);line-height:1.2}
 .edition-games span{font-size:12px;color:#657287}
 @media(max-width:650px){.series-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.series-grid>div{padding:15px;min-height:115px}.format-hierarchy>div{grid-template-columns:78px 1fr;padding:12px}.edition-games{grid-template-columns:1fr}.edition-games>div{padding:13px 17px;gap:4px}}
+
+.pitch-photo-empty{background:#f1f4fa;border:1px dashed #aebbd0;display:flex;align-items:center;justify-content:center;color:#172338}
+.pitch-photo-empty-inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:25px 15px 55px}
+.pitch-photo-empty-inner span{font-size:12px;font-weight:800;color:#1638d9;letter-spacing:.15em}
+.pitch-photo-empty-inner strong{font-size:clamp(17px,2vw,23px);letter-spacing:-.03em}
+.pitch-photo-empty-inner small{font-size:13px;color:#68758a}
+.pitch-photo-empty figcaption{background:linear-gradient(transparent,#26354a);color:white}
